@@ -1,0 +1,101 @@
+\documentclass[12pt, a4paper, oneside]{ctexart}
+\usepackage{amsmath, amsthm, amssymb, graphicx}
+\usepackage[bookmarks=true, colorlinks, citecolor=blue, linkcolor=black]{hyperref}
+\usepackage{fancyhdr}
+\usepackage{abstract}
+\usepackage{xcolor}
+\usepackage{geometry}
+\geometry{a4paper,left=0.6in,right=0.6in,top=1.2in,bottom=1.2in}
+\setlength\columnsep{0.5in}
+\columnseprule=1pt
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{\thepage} 
+\fancyhead[C]{关于晶体双折射问题的讨论} 
+% 导言区
+\title{\Huge 关于晶体双折射问题的讨论}
+\date{\today}
+\setlength{\columnsep}{1in}
+\newcommand{\blankspace}{\rule{2cm}{0.15mm}}
+\begin{document}
+	\maketitle
+	在一般绝缘无磁性线性电介质中麦克斯韦方程组为
+	\begin{equation}
+		\begin{aligned}
+			\begin{cases}
+				\boldsymbol{\nabla} \cdot \boldsymbol{D} = 0 \\
+				\boldsymbol{\nabla} \times \boldsymbol{E} = -\mu_{0}\dfrac{\partial \boldsymbol{H}}{\partial t} \\
+				\boldsymbol{\nabla} \cdot \boldsymbol{H} = 0 \\
+				\boldsymbol{\nabla} \times \boldsymbol{H} = \dfrac{\partial \boldsymbol{D}}{\partial t}
+			\end{cases}
+		\end{aligned}
+	\end{equation}
+	\quad\quad 此外一般的线性本构方程可以表示为
+	\begin{equation}
+		\boldsymbol{D}=\overleftrightarrow{\boldsymbol{\varepsilon}}\cdot\boldsymbol{E} 
+	\end{equation}
+	\quad\quad 其中$\overleftrightarrow{\boldsymbol{\varepsilon}}$必须是一个对称张量。可以考虑线性介质中的麦克斯韦应力张量
+	\begin{equation}
+		\overleftrightarrow{\boldsymbol{\sigma}}= \dfrac{1}{2}\left(\boldsymbol{D}\cdot\boldsymbol{E}+\boldsymbol{B}\cdot\boldsymbol{H}\right)\overleftrightarrow{I}-\overleftrightarrow{\left(\boldsymbol{D}\boldsymbol{E}+\boldsymbol{B}\boldsymbol{H}\right)}
+	\end{equation}
+	\quad\quad 在一般的定态电介质问题中任意一个区域的角动量是守恒的，这个时候要求对任意区域$\Omega$
+	\begin{align}
+		\boldsymbol{M}&=-\iint_{\partial\Omega}\boldsymbol{r}\times\left(\mathrm{d}\boldsymbol{S}\cdot\overleftrightarrow{\boldsymbol{\sigma}}\right)\\
+		&=-e_{i}\iint_{\partial\Omega}\epsilon_{ijk}r_{j}\mathrm{d}S_{l}\sigma_{lk}\\
+		&=-e_{i}\epsilon_{ijk}\iiint_{\Omega}\mathrm{d}^{3}x\partial_{l}\left(r_{j}\sigma_{lk}\right)\\
+		&=-e_{i}\epsilon_{ijk}\iiint_{\Omega}\mathrm{d}^{3}x\sigma_{jk}-e_{i}\epsilon_{ijk}r_{j}\iint_{\partial\Omega}\mathrm{d}S_{l}\sigma_{lk}\\
+		&=0
+	\end{align}
+	\quad\quad 第二项积分其实是区域受力分力，它等于$0$，所以第一项整体为$0$，也就是
+	\begin{equation}
+		\iiint_{\Omega}\mathrm{d}^{3}x(\sigma_{jk}-\sigma_{kj})=0
+	\end{equation}
+	\quad\quad  由连续函数的界值性得到应力张量对称，因此$\overleftrightarrow{\boldsymbol{\varepsilon}}$也对称，它有六个独立分量。\par 
+	一般情况下张量与坐标系的选取有关，为了方便起见，假设主平面与介质界面垂直，并直接把光轴方向取为$z$轴，那么介电张量被对角化
+	\begin{equation}
+		\overleftrightarrow{\boldsymbol{\sigma}}=\begin{bmatrix}
+		\varepsilon_{1}	& 0 & 0\\
+		0	& \varepsilon_{1} & 0\\
+		0	& 0 & \varepsilon_{2}
+		\end{bmatrix}
+	\end{equation}
+	\quad\quad 现在已经能够把广义的折射定律推导出来。很显然$o$光偏振方向垂直于主平面，满足经典折射定律。现在假设入射光是$p$光，容易推出
+	\begin{equation}
+		\boldsymbol{\nabla}\left(\boldsymbol{\nabla}\cdot\boldsymbol{E}\right)-\boldsymbol{\nabla}^{2}\boldsymbol{E}=-\mu_{0}\dfrac{\partial\boldsymbol{D}}{\partial t}
+	\end{equation}
+	\quad\quad 对定态光波可直接作替换
+	\begin{equation}
+		\boldsymbol{\nabla}\to\mathrm{i}\boldsymbol{k}
+	\end{equation}
+	\quad\quad 即
+	\begin{equation}
+		\boldsymbol{k}^{2}\boldsymbol{E}-\left(\boldsymbol{k}\cdot\boldsymbol{E}\right)\boldsymbol{k}=\mu_{0}\omega^{2}\overleftrightarrow{\boldsymbol{\varepsilon}}\cdot\boldsymbol{E}
+	\end{equation}
+	\quad\quad 将上式展开得到方程组
+	\begin{equation}
+		\begin{bmatrix}
+			\mu_{0}\omega^{2}\varepsilon_{1}-k_{z}^{2} & k_{x}k_{z}\\
+			k_{x}k_{z} & \mu_{0}\omega^{2}\varepsilon_{2}-k_{x}
+		\end{bmatrix}
+		\begin{bmatrix}
+			E_{x} \\ E_{z}
+		\end{bmatrix}
+		=
+		\begin{bmatrix}
+			0 \\ 0
+		\end{bmatrix}
+	\end{equation}
+	\quad\quad 左端行列式为$0$，直接解得
+	\begin{equation}
+		n_{N}(\theta)=\dfrac{n_{o}n_{e}}{\sqrt{n_{e}^{2}\cos^{2}\theta+n_{o}^{2}\sin^{2}\theta}}
+	\end{equation}
+	\quad\quad 其中
+	\begin{equation}
+		\cos\theta=\dfrac{\boldsymbol{k}\cdot\boldsymbol{e_{z}}}{|\boldsymbol{k}|}
+	\end{equation}
+	\quad\quad 然后作一些更一般的讨论。假设仍然恰当选取坐标系使介电张量对角化，从(13)式出发经过计算可以得到菲涅尔方程
+	\begin{equation}
+		\dfrac{k_{x}^{2}}{\dfrac{1}{n_{N}^{2}}-\dfrac{1}{\varepsilon_{1}}}+\dfrac{k_{y}^{2}}{\dfrac{1}{n_{N}^{2}}-\dfrac{1}{\varepsilon_{2}}}+\dfrac{k_{z}^{2}}{\dfrac{1}{n_{N}^{2}}-\dfrac{1}{\varepsilon_{3}}}=0
+	\end{equation}
+	\quad\quad 结合相位边界条件可以解出波矢，带回(13)式结合电磁场边界条件可以解出电磁场强度。可以预想解出的各个模式的电场本征矢相互正交，因为线性介质中叠加原理仍成立，而这些模式的波速各不相同。即使相同，也可以采用施密特正交化方法使其全部正交。
+\end{document}
