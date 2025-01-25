@@ -332,17 +332,17 @@
 	\begin{equation}
 		\hat{H}=\dfrac{1}{2m}\left(\boldsymbol{p}-q\boldsymbol{A}\right)^{2}+q\phi=\dfrac{1}{2m}\left(-\mathrm{i}\hbar\boldsymbol{\nabla}-q\boldsymbol{A}\right)^{2}+q\phi
 	\end{equation}
-	\quad\quad 将无旋度区域波函数设为
+	\quad\quad 将无旋度区域波函数设为（这个波函数的适用路径集合中的任意两条路径构成的回路磁通量为$0$）
 	\begin{equation}
-		\Psi=\mathrm{e}^{\mathrm{i}\frac{q}{\hbar}\int^{\boldsymbol{r}}\boldsymbol{A}(\boldsymbol{r^{'}},t)\cdot\mathrm{d}\boldsymbol{r^{'}}}\Psi_{0}
+		\Psi=\mathrm{e}^{\mathrm{i}\frac{q}{\hbar}\int^{\boldsymbol{r}}\boldsymbol{A}(\boldsymbol{r^{\prime}},t)\cdot\mathrm{d}\boldsymbol{r^{\prime}}}\Psi_{0}
 	\end{equation}
 	\quad\quad 带入薛定谔方程得
 	\begin{equation}
-		\mathrm{i}\hbar\dfrac{\partial\Psi}{\partial t}=-\dfrac{\hbar^{2}}{2m}\boldsymbol{\nabla}^{2}\Psi_{0}+q\Psi_{0}\int^{\boldsymbol{r}}\left(\boldsymbol{\nabla}\phi+\dfrac{\partial\boldsymbol{A}}{\partial t}\right)\cdot\mathrm{d}\boldsymbol{r^{'}}
+		\mathrm{i}\hbar\dfrac{\partial\Psi}{\partial t}=-\dfrac{\hbar^{2}}{2m}\boldsymbol{\nabla}^{2}\Psi_{0}+q\Psi_{0}\int^{\boldsymbol{r}}\left(\boldsymbol{\nabla}\phi+\dfrac{\partial\boldsymbol{A}}{\partial t}\right)\cdot\mathrm{d}\boldsymbol{r^{\prime}}
 	\end{equation}
 	\quad\quad 这部分因子对相位无影响，因此相位差为
 	\begin{equation}
-		\Delta\varphi=\dfrac{q}{\hbar}\oint_{C^{+}}\boldsymbol{A}(\boldsymbol{r^{'}},t)\cdot\mathrm{d}\boldsymbol{r^{'}}=\dfrac{q\Phi}{\hbar}
+		\Delta\varphi=\dfrac{q}{\hbar}\oint_{C^{+}}\boldsymbol{A}(\boldsymbol{r^{\prime}},t)\cdot\mathrm{d}\boldsymbol{r^{\prime}}=\dfrac{q\Phi}{\hbar}
 	\end{equation}
 	\quad\quad 很容易看出来这一结果与规范无关，因为任意规范变换
 	\begin{equation}
@@ -352,4 +352,269 @@
 	\begin{equation}
 		\boldsymbol{\nabla}\phi+\dfrac{\partial\boldsymbol{A}}{\partial t}
 	\end{equation}
+	\section{对称性和守恒律}
+	在这一部分中为了区分作用与位置表象下波函数的算符与作用于态的算符，给所有作用于波函数的算符加上下标$p$。\par 
+	先定义几个基本算符：\par
+	位置平移
+	\begin{align}
+		\hat{T}_{p}(a)\psi(x)&=\psi(x-a)\\
+		&=\sum_{n=0}^{+\infty}\dfrac{(-a)^{n}}{n!}\dfrac{\mathrm{d}^{n}}{\mathrm{d}x^{n}}\psi(x)\\
+		&=\mathrm{e}^{-\mathrm{i}\frac{a}{\hbar}\hat{p}_{p}}\psi(x)
+	\end{align}
+	\quad\quad 动量是平移算符的生成元（由于动量算符是厄米的，平移算符是幺正的）
+	\begin{equation}
+		\hat{T}_{p}(a)=\mathrm{e}^{-\mathrm{i}\frac{a}{\hbar}\hat{p}_{p}}
+	\end{equation}
+	\quad\quad 宇称（很明显宇称算符也是幺正的）
+	\begin{equation}
+		\hat{\Pi}_{p}\psi(x)=-\psi(x)
+	\end{equation}
+	\quad\quad 转动
+	\begin{equation}
+		\hat{R_{z}}_{p}(\varphi)\psi(r,\theta,\phi)=\psi(r,\theta,\phi-\varphi)
+	\end{equation}
+	\quad\quad 可以将其推广到三维空间（角动量算符是厄米的，转动算符也是幺正算符）
+	\begin{equation}
+		\hat{R_{\boldsymbol{n}}}_{p}(\varphi)=\mathrm{e}^{-\mathrm{i}\frac{\varphi}{\hbar}\boldsymbol{n}\cdot\boldsymbol{\hat{L}}}
+	\end{equation}
+	\quad\quad 哈密顿量不含时情况下的时间平移（可以直接类比位置平移写出）
+	\begin{align}
+		\hat{U}_{p}(t)&=\mathrm{e}^{-\mathrm{i}\frac{t}{\hbar}\hat{H}_{p}}\\
+		\hat{U}_{p}(t)\Psi(x,0)&=\Psi(x,t)
+	\end{align}
+	\quad\quad 实际上除了平移波函数，还可以改变算符。对于可观测量两种结果应该相同，即
+	\begin{equation}
+		\left<\psi\left|\hat{Q}^{\prime}\right|\psi\right>=\left<\hat{N}\psi\left|\hat{Q}\right|\hat{N}\psi\right>=\left<\psi\left|\hat{N}^{\dagger}\hat{Q}\hat{N}\right|\psi\right>
+	\end{equation}
+	\quad\quad 因此
+	\begin{equation}
+		\hat{Q}^{\prime}=\hat{N}^{\dagger}\hat{Q}\hat{N}
+	\end{equation}
+	\quad\quad 如果
+	\begin{align}
+		&\hat{H}=\hat{N}^{\dagger}\hat{H}\hat{N}\\
+		&\left[\hat{H},\hat{N}\right]=0
+	\end{align}
+	\quad\quad 则称其具有相应对称性。这种对称性可以是连续的，也可以是离散的。有几个经典例子。\par 
+	布洛赫定理。我们早已知道如果两个可对角化矩阵是可交换的，那么总可以适当选择一个矩阵的本征矢量组使其全部都是另一个矩阵的本征矢量（实际上在讨论自旋角动量时已经用到了这一点）。这意味着如果系统具有离散平移对称性，可以找到一组本征态使得
+	\begin{equation}
+		\hat{H}_{p}\psi=E\psi,\hat{T}_{p}\psi=\lambda\psi
+	\end{equation}
+	\quad\quad 这直接导致
+	\begin{equation}
+		\psi(x-a)=\mathrm{e}^{-\mathrm{i}qa}\psi(x)
+	\end{equation}
+	\quad\quad 一种更具有启发性的写法是
+	\begin{equation}
+		\psi(x)=\mathrm{e}^{\mathrm{i}qx}u(x)=\mathrm{e}^{\mathrm{i}qx}u(x+a)
+	\end{equation}
+	\quad\quad 关于连续对称性的另一个启发来自于哈密顿力学。对于可观测量$Q$
+	\begin{equation}
+		\dfrac{\mathrm{d}\left<Q\right>}{\mathrm{d}t}=\left<\dfrac{\partial\hat{Q}}{\partial t}\right>+\dfrac{\mathrm{i}}{\hbar}\left<\left[\hat{H},\hat{Q}\right]\right>
+	\end{equation}
+	\quad\quad 以连续平移对称性为例，无穷小平移算符
+	\begin{equation}
+		\hat{T}_{p}(\varepsilon)\approx1-\mathrm{i}\dfrac{\varepsilon}{\hbar}\hat{p}_{p}
+	\end{equation}
+	\quad\quad 因此动量算符与哈密顿算符对易，系统动量守恒。\par 
+	最后一个例子是对称性引起的能级简并。一个直观的想法是对于任意一个本征函数，总可以通过对称变换构造出另一个波函数。但是这个想法是不正确的，因为变换后的波函数可能和原来的相同或仅仅只差常数因子。事实上，如果只有一个对称算符，这种对称性不会导致简并，因为总可以找到它与哈密顿算符的共同本征态。然而，如果有多个对称算符，且存在至少两个对称算符不对易，那么就不存在它们的共同本征态，此时必然出现简并。例如在三维谐振子势中，由于角动量算符之间不对易导致能级简并。\par 
+	对称性的另一部分内容涉及选择定则，将在之后的部分讨论。
+	\section{角动量耦合}
+	考虑两个属于不同自由度角动量的耦合，我们想研究总的角动量。由于并不限定这里的角动量是轨道角动量还是自旋角动量，我们必须模仿之前对一般角动量的讨论。以两个自旋角动量为例（数学结构是矩阵的直积）
+	\begin{align}
+		\boldsymbol{S}&=\boldsymbol{S}^{(1)}+\boldsymbol{S}^{(2)}\\
+		S_{\pm}&=S^{(1)}_{\pm}+S^{(2)}_{\pm}
+	\end{align}
+	\quad\quad 之后的讨论与此前完全一致，但是目前不是很容易看出总角动量的取值上下界是什么。可以这样考虑:假设在$S_{\pm}$作用后结果是$0$，则作用前$S_{z}$的本征值绝对值为$S_{z}^{(1)}$与$S_{z}^{(2)}$最大本征值之和（否则原态矢量一定存在作用后不为$0$的成分），而角动量数学结构要求$s$在$\left|s_{1}-s_{2}\right|$到$s_{1}+s_{2}$之间间隔为$1$地取值。\par 
+	下面来考虑两个自旋$\dfrac{1}{2}$粒子的耦合。很容易构造出$s=1$的三重态
+	\begin{align}
+		&\left|1,1\right>=\left|\uparrow_{1},\uparrow_{2}\right>\\
+		&\left|1,0\right>=\dfrac{1}{\sqrt{2}}\left(\left|\uparrow_{1},\downarrow_{2}\right>+\left|\downarrow_{1},\uparrow_{2}\right>\right)\\
+		&\left|1,-1\right>=\left|\downarrow_{1},\downarrow_{2}\right>
+	\end{align}
+	\quad\quad 与$s=0$的单态
+	\begin{equation}
+		\left|0,0\right>=\dfrac{1}{\sqrt{2}}\left(\left|\uparrow_{1},\downarrow_{2}\right>-\left|\downarrow_{1},\uparrow_{2}\right>\right)
+	\end{equation}
+	\quad\quad 容易验证这几个态都是正交归一的。首先显然有
+	\begin{equation}
+		\left<\uparrow|\downarrow\right>=0
+	\end{equation}
+	\quad\quad 接下来举一个例子。直和的性质告诉我们（为了直观不得不放弃符号的严谨性）
+	\begin{align}
+		\left<1,1|0,0\right>&\sim\dfrac{1}{\sqrt{2}}\left(\left<\uparrow_{2},\uparrow_{1}|\uparrow_{1},\downarrow_{2}\right>-\left<\uparrow_{2},\uparrow_{1}|\downarrow_{1},\uparrow_{2}\right>\right)\\
+		&\sim\dfrac{1}{\sqrt{2}}\left<\uparrow_{2}|\downarrow_{2}\right>\\
+		&=0
+	\end{align}
+	\quad\quad 现在回到一般情况的讨论。由升降算符技巧可以发现总自旋态可以表示为复合态的线性组合
+	\begin{equation}
+		\left|s,m\right>=\sum_{m_{1}+m_{2}=m}C_{m_{1}m_{2}m}^{s_{1}s_{2}s}\left|s_{1},s_{2},m_{1},m_{2}\right>
+	\end{equation}
+	\quad\quad 其中展开系数$C_{m_{1}m_{2}m}^{s_{1}s_{2}s}$称为CG系数。一个有趣的观察是如果我们先列出所有的线性组合，反解出复合态用总自旋态展开的线性组合，然后挑选出其中$m$相同的所有线性组合排成矩阵，那么这两个矩阵都是幺正矩阵（因为不同总自旋态相互正交）。这告诉我们其实反向展开时不需要重新解方程，即
+	\begin{equation}
+		\left|s_{1},s_{2},m_{1},m_{2}\right>=\sum_{|s_{1}-s_{2}|\le s\le s_{1}+s_{2}}C_{m_{1}m_{2}m}^{s_{1}s_{2}s}\left|s,m_{1}+m_{2}\right>
+	\end{equation}
+	\section{全同粒子}
+	接下来先讨论全同粒子。在经典情形下，区分两个粒子是容易的：只需要做标记或者两个粒子本身处在不同区域。而在量子力学中同种微观粒子都是完全相同的，如果两个相同微观粒子的波函数有交叠，实际上没有办法在不改变其状态的情况下加以区分。\par 
+	在非相对论量子力学中，需要引入公理：自旋为整数的粒子为玻色子，自旋为半整数的粒子为费米子。如果粒子是无相互作用的，玻色子系统的波函数是交换对称的，费米子系统的波函数是交换反对称的。在这种构造下就没有办法区分每个粒子究竟处于哪一种状态。
+	\section{选择定则}
+	宇称算符的选择定则。分别考虑具有奇偶宇称算符的选择定则
+	\begin{align}
+		\Big{<}n^{'}l^{'}m^{'}\Big{|}\hat{\boldsymbol{p}}\Big{|}nlm\Big{>}&=-\Big{<}n^{'}l^{'}m^{'}\Big{|}\hat{\Pi}^{\dagger}\hat{\boldsymbol{p}}\hat{\Pi}\Big{|}nlm\Big{>}=(-1)^{l+l^{'}+1}\Big{<}n^{'}l^{'}m^{'}\Big{|}\hat{\boldsymbol{p}}\Big{|}nlm\Big{>}\\
+		\Big{<}n^{'}l^{'}m^{'}\Big{|}\hat{\boldsymbol{L}}\Big{|}nlm\Big{>}&=\Big{<}n^{'}l^{'}m^{'}\Big{|}\hat{\Pi}^{\dagger}\hat{\boldsymbol{L}}\hat{\Pi}\Big{|}nlm\Big{>}=(-1)^{l+l^{'}}\Big{<}n^{'}l^{'}m^{'}\Big{|}\hat{\boldsymbol{L}}\Big{|}nlm\Big{>}
+	\end{align}
+	\quad\quad 氢原子波函数的宇称完全来自于角向部分，具体来说仅和$\theta$有关。连带勒让德函数的约定使得$-1$因子与求导对宇称的影响相互抵消，从而宇称仅取决于$l$。\par 
+	标量算符的选择定则。无论是真标量还是赝标量在转动变换下都不变，即
+	\begin{equation}
+		\left[\hat{L_{z}},\hat{f}\right]=0
+	\end{equation}
+	\quad\quad 将其插入两个本征态之间
+	\begin{align}
+		\Big{<}n^{\prime}l^{\prime}m^{\prime}\Big{|}\left[\hat{L_{z}},\hat{f}\right]\Big{|}nlm\Big{>}&=\left(m^{\prime}-m\right)\left<n^{\prime}l^{\prime}m^{\prime}\right|\hat{f}\left|nlm\right>=0\\
+		\Big{<}n^{\prime}l^{\prime}m^{\prime}\Big{|}\left[\hat{\boldsymbol{L}^{2}},\hat{f}\right]\Big{|}nlm\Big{>}&=\left(l^{\prime}-l\right)\left(l^{\prime}+l+1\right)\left<n^{\prime}l^{\prime}m^{\prime}\right|\hat{f}\left|nlm\right>=0
+	\end{align}
+	\quad\quad 因此此矩阵元可能不为$0$仅当$\Delta l=0$且$\Delta m=0$。还可以证明在此条件下矩阵元与$m$无关
+	\begin{align}
+		&\Big{<}n^{\prime}lm^{\prime}\Big{|}\left[\hat{L_{\pm}},\hat{f}\right]\Big{|}nlm\Big{>}\\&=\sqrt{l\left(l+1\right)-m^{\prime}\left(m^{\prime}\mp1\right)}\left<n^{\prime}lm^{\prime}\mp1\right|\hat{f}\left|nlm\right>-\sqrt{l\left(l+1\right)-m\left(m\pm1\right)}\left<n^{\prime}lm^{\prime}\right|\hat{f}\left|nlm\pm1\right>\\&=0
+	\end{align}
+	\quad\quad 令$m^{\prime}=m\pm1$得到（否则上式将是平凡的）
+	\begin{equation}
+		\left<n^{\prime}lm\right|\hat{f}\left|nlm\right>=\left<n^{\prime}lm\pm1\right|\hat{f}\left|nlm\pm1\right>
+	\end{equation}
+	\quad\quad 矢量算符的选择定则。
+	\section{WKB近似}
+	将定态波函数设为
+	\begin{equation}
+		\psi(x)=A(x)\mathrm{e}^{\mathrm{i}\phi(x)}
+	\end{equation}
+	\quad\quad 假设$\dfrac{1}{A}\dfrac{\mathrm{d}^{2}A}{\mathrm{d}x^{2}}$相比其他部分非常小，最终近似得到
+	\begin{align}
+		&\left(\dfrac{\mathrm{d}\phi}{\mathrm{d}x}\right)^{2}=\dfrac{p^{2}}{\hbar^{2}}\\
+		&\dfrac{\mathrm{d}}{\mathrm{d}x}\left(A^{2}\dfrac{\mathrm{d}\phi}{\mathrm{d}x}\right)=0
+	\end{align}
+	\quad\quad 在经典区域的解为
+	\begin{equation}
+		\psi(x)\approx\dfrac{C}{\sqrt{p(x)}}\mathrm{e}^{\pm\frac{\mathrm{i}}{\hbar}\int^{x}p(x^{\prime})\mathrm{d}x^{\prime}}
+	\end{equation}
+	\quad\quad 在非经典区域的解为
+	\begin{equation}
+		\psi(x)\approx\dfrac{C}{\sqrt{\left|p(x)\right|}}\mathrm{e}^{\pm\frac{1}{\hbar}\int^{x}\left|p(x^{\prime})\right|\mathrm{d}x^{\prime}}
+	\end{equation}
+	\quad\quad 这样的近似在$p$较小时是不合理的，为此我们需要找到连接条件。在经典动量为$0$的区域将势能作线性近似，薛定谔方程变为
+	\begin{equation}
+		\dfrac{\mathrm{d}^{2}\psi}{\mathrm{d}x^{2}}=\dfrac{2mV^{\prime}(0)}{\hbar^{2}}x\psi
+	\end{equation}
+	\quad\quad 作换元$\alpha=\left(\dfrac{2mV^{\prime}(0)}{\hbar^{2}}\right)^{\frac{1}{3}}$，$z=\alpha x$
+	\begin{equation}
+		\dfrac{\mathrm{d}^{2}\psi}{\mathrm{d}z^{2}}=z\psi
+	\end{equation}
+	\quad\quad 这是艾里方程，但是我们目前并不关心具体的级数解，只需要找到渐进形式。这个方程的形式提示我们可以将试探解设为
+	\begin{equation}
+		u(z)=z^{\beta}\mathrm{e}^{\lambda z^{\gamma}}
+	\end{equation}
+	\quad\quad 从原方程可以看出来$\gamma>1$，因为它增长地比指数函数更快。带入得到（左侧按量级从大到小排列，实际确定系数时必须舍去最小的一项）
+	\begin{equation}
+		\lambda^{2}\gamma^{2}z^{\beta+2\gamma-2}+\lambda\gamma\left(2\beta+\gamma-1\right)z^{\beta+\gamma-2}+\beta\left(\beta-1\right)z^{\beta-2}=z^{\beta+1}
+	\end{equation}
+	\quad\quad 因此
+	\begin{align}
+		\beta&=-\dfrac{1}{4}\\
+		\lambda&=\pm\dfrac{2}{3}\\
+		\gamma&=\dfrac{3}{2}
+	\end{align}
+	\quad\quad 现在的近似解在两端都适用，但是不能保证存在一个原方程的解使得其两端的渐近展开都与试探解相同。现在必须切换到其他方法。我们先尝试用傅里叶变换找一个平方可积解，可以使用傅里叶变换
+	\begin{align}
+		&\psi(z)\Longleftrightarrow \xi(k)\\
+		&\dfrac{\mathrm{d}\xi}{\mathrm{d}k}-\mathrm{i}k^{2}\xi=0
+	\end{align}
+	\quad\quad 解这个方程很容易得到一个解
+	\begin{equation}
+		A_{i}(z)=\dfrac{1}{\pi}\int_{0}^{+\infty}\cos\left(\dfrac{1}{3}k^{3}+kz\right)\mathrm{d}k
+	\end{equation}
+	\quad\quad 使用鞍点法计算出渐近展开
+	\begin{equation}
+		A_{i}(z)\approx\left\{\begin{matrix}
+		\dfrac{\mathrm{e}^{-\frac{2}{3}z^{\frac{3}{2}}}}{2\sqrt{\pi}z^{\frac{1}{4}}},z\gg0	\\\dfrac{\sin\left(\frac{2}{3}\left(-z\right)^{\frac{3}{2}}+\frac{\pi}{4}\right)}{\sqrt{\pi}\left(-z\right)^{\frac{1}{4}}},z\ll0
+		\end{matrix}\right.
+	\end{equation}
+	\quad\quad 利用原方程构造出另一个解
+	\begin{equation}
+		B_{i}(z)=\dfrac{1}{2\pi}A_{i}(z)\int_{0}^{z}\dfrac{\mathrm{d}z}{A_{i}^{2}(z)}
+	\end{equation}
+	\quad\quad 我们只关心渐近展开（直接这样积分结果正确的原因是积分的主要区间恰好就是远端部分）
+	\begin{equation}
+		B_{i}(z)\approx\left\{\begin{matrix}
+			\dfrac{\mathrm{e}^{\frac{2}{3}z^{\frac{3}{2}}}}{2\sqrt{\pi}z^{\frac{1}{4}}},z\gg0	\\\dfrac{\cos\left(\frac{2}{3}\left(-z\right)^{\frac{3}{2}}+\frac{\pi}{4}\right)}{\sqrt{\pi}\left(-z\right)^{\frac{1}{4}}},z\ll0
+		\end{matrix}\right.
+	\end{equation}
+	\quad\quad 设$\alpha>0$，先写出远端波函数
+	\begin{equation}
+		\psi(x)=\left\{\begin{matrix}
+		\dfrac{1}{\sqrt{p(x)}}\left[C\mathrm{e}^{-\frac{\mathrm{i}}{\hbar}\int_{0}^{x}p(x^{\prime})\mathrm{d}x^{\prime}}+D\mathrm{e}^{\frac{\mathrm{i}}{\hbar}\int_{0}^{x}p(x^{\prime})\mathrm{d}x^{\prime}}\right],x<0	\\\dfrac{1}{\sqrt{|p(x)|}}\left[E\mathrm{e}^{-\frac{1}{\hbar}\int_{0}^{x}|p(x^{\prime})|\mathrm{d}x^{\prime}}+F\mathrm{e}^{\frac{1}{\hbar}\int_{0}^{x}|p(x^{\prime})|\mathrm{d}x^{\prime}}\right],x>0
+		\end{matrix}\right.
+	\end{equation}
+	\quad\quad 经过计算得到
+	\begin{equation}
+		\psi(x)=\left\{\begin{matrix}
+			\dfrac{1}{\hbar^{\frac{1}{2}}\alpha^{\frac{1}{2}}(-\alpha x)^{\frac{1}{4}}}\left[C\mathrm{e}^{\mathrm{i}\frac{2}{3}(-\alpha x)^{\frac{3}{2}}}+D\mathrm{e}^{-\mathrm{i}\frac{2}{3}(-\alpha x)^{\frac{3}{2}}}\right],x<0	\\\dfrac{1}{\hbar^{\frac{1}{2}}\alpha^{\frac{1}{2}}(\alpha x)^{\frac{1}{4}}}\left[E\mathrm{e}^{-\frac{2}{3}(\alpha x)^{\frac{3}{2}}}+F\mathrm{e}^{\frac{2}{3}(\alpha x)^{\frac{3}{2}}}\right],x>0
+		\end{matrix}\right.
+	\end{equation}
+	\quad\quad 比较得到
+	\begin{equation}
+		\left\{\begin{matrix}
+		2E=C\mathrm{e}^{\mathrm{i}\frac{\pi}{4}}+D\mathrm{e}^{-\mathrm{i}\frac{\pi}{4}}	\\2F=C\mathrm{e}^{-\mathrm{i}\frac{\pi}{4}}+D\mathrm{e}^{\mathrm{i}\frac{\pi}{4}}
+		\end{matrix}\right.
+	\end{equation}
+	\section{散射}
+	在经典力学中定义了微分散射截面
+	\begin{equation}
+		D(\theta)=\dfrac{\mathrm{d}\sigma}{\mathrm{d}\Omega}=\dfrac{b}{\sin\theta}\left|\dfrac{\mathrm{d}b}{\mathrm{d}\theta}\right|
+	\end{equation}
+	\quad\quad 现在想找到一般形式的薛定谔方程的散射解
+	\begin{align}
+		\psi(r,\theta)&\approx A\left[\mathrm{e}^{\mathrm{i}kz}+f(\theta)\dfrac{\mathrm{e}^{\mathrm{i}kr}}{r}\right]\\
+		D(\theta)&=\left|f(\theta)\right|^{2}
+	\end{align}
+	\section{定态微扰理论}
+	使用微扰法近似求解定态薛定谔方程。先假设无微扰本征态是非简并的。用$\lambda$来标记数量级，保留到二阶项
+	\begin{align}
+		\hat{H}&=\hat{H^{0}}+\lambda\hat{H^{\prime}}\\
+		\left|\psi_{n}\right>&=\left|\psi^{0}_{n}\right>+\lambda\left|\psi^{1}_{n}\right>+\lambda^{2}_{n}\left|\psi^{2}\right>\\
+		E_{n}&=E_{n}^{0}+E_{n}^{1}+E_{n}^{2}
+	\end{align}
+	\quad\quad 带入定态薛定谔方程得到
+	\begin{align}
+		\hat{H^{0}}\left|\psi_{n}^{0}\right>&=E_{n}^{0}\left|\psi_{n}^{0}\right>\\
+		\hat{H^{0}}\left|\psi_{n}^{1}\right>+\hat{H^{\prime}}\left|\psi_{n}^{0}\right>&=E_{n}^{0}\left|\psi_{n}^{1}\right>+E_{n}^{1}\left|\psi_{n}^{0}\right>\\
+		\hat{H^{0}}\left|\psi_{n}^{2}\right>+\hat{H^{\prime}}\left|\psi_{n}^{1}\right>&=E_{n}^{0}\left|\psi_{n}^{2}\right>+E_{n}^{1}\left|\psi_{n}^{1}\right>+E_{n}^{2}\left|\psi_{n}^{0}\right>
+	\end{align}
+	\quad\quad 取内积得到
+	\begin{align}
+		E_{n}^{1}&=\left<\psi_{n}^{0}\right|\hat{H^{\prime}}\left|\psi_{n}^{0}\right>\\
+		\left|\psi_{n}^{1}\right>&=\sum_{m\ne n}\dfrac{\left<\psi_{m}^{0}\right|\hat{H^{\prime}}\left|\psi_{n}^{0}\right>}{E_{n}^{0}-E_{m}^{0}}\left|\psi_{m}^{0}\right>\\
+		E_{n}^{2}&=\sum_{m\ne n}\dfrac{\left|\left<\psi_{m}^{0}\right|\hat{H^{\prime}}\left|\psi_{n}^{0}\right>\right|^{2}}{E_{n}^{0}-E_{m}^{0}}
+	\end{align}
+	\quad\quad 现在来考虑包含简并的情形。简并态可以进行正交化，我们希望正交化得到的本征态恰好就是逐步撤去微扰时本征态的极限。假设本征态已经全部正交化，现在来定出展开系数。通过取内积可以将其变为本征值问题，而本征矢代表着具体的组合方式（其实这里比较幽默的一点是这个方法对于求解这些简并本征态的一级修正没有任何帮助，因为可以把$m\ne n$扩展为简并本征态全都不取，仅仅只是求和条件改变。然而对于非简并本征态的一级修正是有影响的，因为$\hat{H}$的属于同一本征值本征态未必全都是$\hat{H^{\prime}}$属于同一本征值的本征态。事实上这一点从一开始就能看出来，如果不找到这些适当组合的本征态，一开始计算能量一级修正的时候结果就不一定是确定的。实际上，随意组合的本征态完全可以套用非简并情形计算，每一种组合都对应一种修正值，至少在目前近似阶数不高的情况下是没有任何问题的。我们现在所做的额外要求其实只是处于物理图像上的考虑，即微扰消失时本征态需要连续地演化）
+	\begin{align}
+		\overleftrightarrow{W}\alpha&=E^{1}\alpha\\
+		W_{mn}&=\left<\psi_{m}\right|\hat{H^{\prime}}\left|\psi_{n}\right>
+	\end{align}
+	\quad\quad 这种方法求解起来较为麻烦，可以使用如下定理：如果存在厄米算符$\hat{A}$与微扰后哈密顿量对易，且简并本征态（已经正交化）是$\hat{A}$属于不同特征值的本征态，那么这些本征态就是我们要找的。以二重简并为例，假设
+	\begin{align}
+		\hat{H^{0}}\left|\psi_{a}^{0}\right>&=\hat{H^{0}}\left|\psi_{b}^{0}\right>=E^{0}\\
+		\hat{A}\left|\psi_{a}^{0}\right>&=\mu\left|\psi_{a}^{0}\right>\\
+		\hat{A}\left|\psi_{b}^{0}\right>&=\nu\left|\psi_{b}^{0}\right>
+	\end{align}
+	\quad\quad $\hat{A}$与哈密顿量有共同本征态
+	\begin{equation}
+		\hat{A}\left|\xi\right>=\gamma\left|\xi\right>
+	\end{equation}
+	\quad\quad 由$\hat{A}$的厄米性得到
+	\begin{align}
+		(\gamma-\mu)\left<\psi_{a}^{0}\big{|}\xi\right>&=0\\
+		(\gamma-\nu)\left<\psi_{b}^{0}\big{|}\xi\right>&=0
+	\end{align}
+	\quad\quad 如果取微扰为$0$的极限，$\gamma$必须是$\mu$和$\nu$中的一个，否则两个内积都是$0$，这个共同本征态的极限是$0$，不符合要求。这就说明内积有一个是$0$，有一个不是$0$，这就说明极限是简并本征态中的一个。由于已经完成正交化，这一组简并本征态满足要求。（实际上往往能够通过对称性找到$\hat{A}$并通过相应对称性适当组合本征函数）
+	\section{含时微扰理论}
+	
 \end{document}
