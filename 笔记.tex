@@ -254,7 +254,118 @@
 	\begin{equation}
 		\psi_{nlm}=\sqrt{\left(\frac{2}{n a}\right)^{3} \frac{(n-l-1)!}{2 n(n+l)!}} \mathrm{e}^{-r / n a}\left(\frac{2 r}{n a}\right)^{l}\left[\mathrm{L}_{n-l-1}^{2 l+1}(2 r / n a)\right] \mathrm{Y}_{l}^{m}(\theta, \phi)
 	\end{equation}
-	
+	\quad\quad 接下来再看几个例子。\par 
+	考虑哈密顿量
+	\begin{equation}
+		\hat{H}(\lambda)=\dfrac{\hat{p}^{2}}{2m}+V+\lambda\hat{p}
+	\end{equation}
+	\quad\quad 目前已经知道$\hat{H}(0)$的本征函数和对应能级
+	\begin{equation}
+		\psi_{n},E_{n}
+	\end{equation}
+	\quad\quad 现在来求$\hat{H}(\lambda)$的本征函数和对应能级。我们先把哈密顿量写成
+	\begin{equation}
+		\hat{H}=\dfrac{\left(\hat{p}+m\lambda\right)^{2}}{2m}+V-\dfrac{1}{2}m\lambda^{2}
+	\end{equation}
+	\quad\quad 这告诉我们这个问题在动量表象下比较简单，添加的常数定价于坐标平移，这样可以直接写出能级
+	\begin{equation}
+		E_{n}(\lambda)=E_{n}-\dfrac{1}{2}m\lambda^{2}
+	\end{equation}
+	\quad\quad 以及波函数
+	\begin{align}
+		\psi_{n}(x,\lambda)&=\dfrac{1}{\sqrt{2\pi\hbar}}\int\mathrm{d}p\mathrm{e}^{\mathrm{i}\frac{px}{\hbar}}\dfrac{1}{\sqrt{2\pi\hbar}}\int\mathrm{d}x^{\prime}\mathrm{e}^{-\mathrm{i}\frac{\left(p+m\lambda\right)x^{\prime}}{\hbar}}\psi_{n}\left(x^{\prime}\right)\\
+		&=\mathrm{e}^{-\mathrm{i}\frac{m\lambda}{\hbar}x}\psi(x)
+	\end{align}
+	\quad\quad 考虑哈密顿量
+	\begin{equation}
+		\overleftrightarrow{H}=\begin{pmatrix}
+		\dfrac{5}{2}\hat{a_{-}}\hat{a_{+}}+\hat{a_{-}}^{2}+\hat{a_{+}}^{2}+\hat{a_{-}}+\hat{a_{+}}	& \dfrac{1}{5}\\ 
+		\dfrac{1}{5}	&\dfrac{5}{2}\hat{a_{-}}\hat{a_{+}}+\hat{a_{-}}^{2}+\hat{a_{+}}^{2}+\hat{a_{-}}+\hat{a_{+}}
+		\end{pmatrix}
+	\end{equation}
+	\quad\quad 我们希望求它的特征值。这种问题可以重新构造升降算符（系数均为实数）
+	\begin{align}
+		\hat{b_{-}}&=\alpha\hat{a_{-}}+\beta\hat{a_{+}}+\gamma\\
+		\hat{b_{+}}&=\alpha\hat{a_{+}}+\beta\hat{a_{-}}+\gamma
+	\end{align}
+	\quad\quad 升降算符要求
+	\begin{align}
+		\hat{a_{+}}\hat{a_{-}}\psi_{n}&=n\psi_{n}\\
+		\hat{a_{-}}\hat{a_{+}}\psi_{n}&=\left(n+1\right)\psi_{n}
+	\end{align}
+	\quad\quad 我们期望维持对易关系不变，且凑出哈密顿量中的系数，这要求
+	\begin{equation}
+		\left\{\begin{matrix}
+		\alpha^{2}-\beta^{2}=1	\\
+		\alpha^{2}+\beta^{2}=\dfrac{5}{2}\alpha\beta	\\
+		\gamma\left(\alpha+\beta\right)=\alpha\beta
+		\end{matrix}\right.\to
+		\left\{\begin{matrix}
+			\alpha=\dfrac{2\sqrt{3}}{3} \\
+			\beta=\dfrac{\sqrt{3}}{3}\\
+			\alpha\beta=\dfrac{2}{3}\\
+			\gamma=\dfrac{2\sqrt{3}}{9}
+		\end{matrix}\right.
+	\end{equation}
+	\quad\quad 因此
+	\begin{equation}
+		\hat{A}=\dfrac{5}{2}\hat{a_{-}}\hat{a_{+}}+\hat{a_{-}}^{2}+\hat{a_{+}}^{2}+\hat{a_{-}}+\hat{a_{+}}=\dfrac{3}{2}\hat{b_{+}}\hat{b_{-}}+\dfrac{16}{9}
+	\end{equation}
+	\quad\quad 我们按照和以前完全相同的方法
+	\begin{align}
+		\hat{A}\left|n\right>&=\lambda\left|n\right>\\
+		\hat{A}\left(\hat{b_{\pm}}\left|n\right>\right)&=\left(\lambda\pm\dfrac{3}{2}\right)\left|n\right>\\
+		\hat{b_{-}}\left|0\right>&=0
+	\end{align}
+	\quad\quad 因此得到了一组本征态与对应能级
+	\begin{equation}
+		\left|n\right>,\lambda_{n}=\dfrac{3}{2}n+\dfrac{16}{9},n=0,1,2\dots
+	\end{equation}
+	\quad\quad 对于原哈密顿量，比较直观地构造一组基
+	\begin{equation}
+		\begin{pmatrix}
+		\left|0\right>	\\
+			0
+		\end{pmatrix},
+		\begin{pmatrix}
+			\left|1\right>	\\
+			0
+		\end{pmatrix},
+		\begin{pmatrix}
+			\left|2\right>	\\
+			0
+		\end{pmatrix}\dots
+		\begin{pmatrix}
+				0	\\
+		\left|0\right>
+		\end{pmatrix},
+		\begin{pmatrix}
+			0	\\
+			\left|1\right>
+		\end{pmatrix},
+		\begin{pmatrix}
+			0	\\
+			\left|2\right>
+		\end{pmatrix}\dots
+	\end{equation}
+	\quad\quad 哈密顿量矩阵在这个基下被化为四个对角矩阵，利用
+	\begin{equation}
+		\begin{vmatrix}
+		\overleftrightarrow{A}	&\overleftrightarrow{B} \\
+		\overleftrightarrow{B}	&\overleftrightarrow{A}
+		\end{vmatrix}=\left|\overleftrightarrow{A}+\overleftrightarrow{B}\right|\left|\overleftrightarrow{A}-\overleftrightarrow{B}\right|
+	\end{equation}
+	\quad\quad 得到特征值
+	\begin{align}
+		\left\{\begin{matrix}
+		\lambda_{n1}&=\dfrac{3}{2}n+\dfrac{89}{45}	\\\\
+		\lambda_{n1}&=\dfrac{3}{2}n+\dfrac{71}{45}
+		\end{matrix}\right.,n=0,1,2\dots
+	\end{align}
+	\quad\quad 其实这个例子还告诉我们可以用本征态表示升降算符
+	\begin{equation}
+		y
+	\end{equation}
 	\section{自旋}
 	接下来将要讨论一个略显微妙的问题。容易计算对易关系
 	\begin{equation}
@@ -688,15 +799,128 @@
 		\end{matrix}\right.
 	\end{equation}
 	\section{散射}
-	在经典力学中定义了微分散射截面
+	一般来说相对于柱函数，球函数是我们更熟悉的。现在先补充这部分内容。在将亥姆霍兹方程在柱坐标下分离变量得到
+	\begin{equation}
+		\dfrac{\mathrm{d}^{2}R}{\mathrm{d}r^{2}}+\dfrac{1}{r}\dfrac{\mathrm{d}R}{\mathrm{d}r}+\left(k^{2}-\lambda-\dfrac{m}{r^{2}}\right)R=0
+	\end{equation}
+	\quad\quad 作换元$x=\sqrt{k^{2}-\lambda}$，$m=\nu^{2}$得到贝塞尔方程
+	\begin{equation}
+		\dfrac{\mathrm{d}^{2}R}{\mathrm{d}x^{2}}+\dfrac{1}{x}\dfrac{\mathrm{d}R}{\mathrm{d}x}+\left(1-\dfrac{\nu^{2}}{x^{2}}\right)R=0
+	\end{equation}
+	\quad\quad 当$\nu$不是正整数时方程的解为
+	\begin{equation}
+		\mathrm{J}_{\pm\nu}=\sum_{k=0}^{+\infty}\dfrac{\left(-1\right)^{k}}{k!\Gamma\left(k\pm\nu+1\right)}\left(\dfrac{x}{2}\right)^{2k\pm\nu}
+	\end{equation}
+	\quad\quad 否则需要定义诺伊曼函数
+	\begin{equation}
+		\mathrm{N}_{n}=\lim_{\nu\to n}\dfrac{\mathrm{J}_{\nu}\cos\left(\nu\pi\right)-\mathrm{J}_{-\nu}}{\sin\left(\nu\pi\right)}
+	\end{equation}
+	\quad\quad 诺伊曼函数在原点总是发散的，正数及非正整数阶贝塞尔函数在原点总是收敛的，其余发散。贝塞尔函数与诺伊曼函数组合成汉克尔函数
+	\begin{align}
+		\mathrm{H}_{\nu}^{\left(1\right)}&=\mathrm{J}_{\nu}+\mathrm{i}\mathrm{N}_{\nu}\\
+		\mathrm{H}_{\nu}^{\left(2\right)}&=\mathrm{J}_{\nu}-\mathrm{i}\mathrm{N}_{\nu}
+	\end{align}
+	\quad\quad 当$x\to+\infty$时的渐近展开
+	\begin{align}
+		\mathrm{J}_{\nu}&\approx\sqrt{\dfrac{2}{\pi x}}\cos\left(x-\dfrac{\nu\pi}{2}-\dfrac{\pi}{4}\right)\\
+		\mathrm{N}_{\nu}&\approx\sqrt{\dfrac{2}{\pi x}}\sin\left(x-\dfrac{\nu\pi}{2}-\dfrac{\pi}{4}\right)\\
+		\mathrm{H}_{\nu}^{\left(1\right)}&\approx\sqrt{\dfrac{2}{\pi x}}\mathrm{e}^{\mathrm{i}\left(x-\frac{\nu\pi}{2}-\frac{\pi}{4}\right)}\\
+		\mathrm{H}_{\nu}^{\left(2\right)}&\approx\sqrt{\dfrac{2}{\pi x}}\mathrm{e}^{-\mathrm{i}\left(x-\frac{\nu\pi}{2}-\frac{\pi}{4}\right)}
+	\end{align}
+	\quad\quad 散射问题往往用球坐标更加方便，亥姆霍兹方程在球坐标下分离变量得到
+	\begin{equation}
+		\dfrac{1}{r^{2}}\dfrac{\mathrm{d}}{\mathrm{d}r}\left(r^{2}\dfrac{\mathrm{d}R}{\mathrm{d}r}\right)+\left[k^{2}-\dfrac{l\left(l+1\right)}{r^{2}}\right]R=0
+	\end{equation}
+	\quad\quad 仍然作换元$x=kr$，$u=\sqrt{x}R$
+	\begin{equation}
+		\dfrac{\mathrm{d}^{2}u}{\mathrm{d}x^{2}}+\dfrac{1}{x}\dfrac{\mathrm{d}u}{\mathrm{d}x}+\left[1-\dfrac{\left(l+\dfrac{1}{2}\right)^{2}}{x^{2}}\right]u=0
+	\end{equation}
+	\quad\quad 这告诉我们可以定义球贝塞尔函数并直接得到$x\to+\infty$时的渐近展开
+	\begin{align}
+		&\mathrm{j}_{l}=\sqrt{\dfrac{\pi}{2x}}\mathrm{J}_{l+\frac{1}{2}}\to\dfrac{1}{x}\cos\left(x-\dfrac{l\pi}{2}-\dfrac{\pi}{2}\right)\\
+		&\mathrm{n}_{l}=\sqrt{\dfrac{\pi}{2x}}\mathrm{N}_{l+\frac{1}{2}}\to\dfrac{1}{x}\sin\left(x-\dfrac{l\pi}{2}-\dfrac{\pi}{2}\right)\\
+		&\mathrm{h}_{l}^{\left(1\right)}=\mathrm{j}_{l}+\mathrm{i}\mathrm{n}_{l}\to\dfrac{1}{x}\mathrm{e}^{\mathrm{i}\left(x-\frac{l\pi}{2}-\frac{\pi}{2}\right)}\\
+		&\mathrm{h}_{l}^{\left(2\right)}=\mathrm{j}_{l}-\mathrm{i}\mathrm{n}_{l}\to\dfrac{1}{x}\mathrm{e}^{-\mathrm{i}\left(x-\frac{l\pi}{2}-\frac{\pi}{2}\right)}
+	\end{align}
+	\quad\quad 一般入射波为平面波，我们希望将其用球面波展开，即瑞利公式
+	\begin{equation}
+		\mathrm{e}^{\mathrm{i}kr\cos\theta}=\sum_{l=0}^{+\infty}c_{l}\mathrm{j}_{l}\left(kr\right)\mathrm{P}_{l}\left(\cos\theta\right)
+	\end{equation}
+	\quad\quad 因此
+	\begin{equation}
+		c_{l}\mathrm{j}_{l}\left(kr\right)=\dfrac{2l+1}{2}\int_{-1}^{1}\mathrm{e}^{\mathrm{i}krx}\mathrm{P}_{l}\left(x\right)\mathrm{d}x
+	\end{equation}
+	\quad\quad 考虑渐进形式
+	\begin{equation}
+		\dfrac{c_{l}}{kr}\cos\left(kr-\dfrac{l\pi}{2}-\dfrac{\pi}{2}\right)\approx\dfrac{2l+1}{2\mathrm{i}kr}\left[\mathrm{e}^{\mathrm{i}kr}-\left(-1\right)^{l}\mathrm{e}^{-\mathrm{i}kr}\right]
+	\end{equation}
+	\quad\quad 得到
+	\begin{equation}
+		c_{l}=\left(2l+1\right)\mathrm{i}^{l}
+	\end{equation}
+	\quad\quad 在经典力学中定义了微分散射截面
 	\begin{equation}
 		D(\theta)=\dfrac{\mathrm{d}\sigma}{\mathrm{d}\Omega}=\dfrac{b}{\sin\theta}\left|\dfrac{\mathrm{d}b}{\mathrm{d}\theta}\right|
 	\end{equation}
-	\quad\quad 现在想找到一般形式的薛定谔方程的散射解
+	\quad\quad 先讨论分波法。现在想找到一般形式的薛定谔方程的散射解
 	\begin{align}
 		\psi(r,\theta)&\approx A\left[\mathrm{e}^{\mathrm{i}kz}+f(\theta)\dfrac{\mathrm{e}^{\mathrm{i}kr}}{r}\right]\\
 		D(\theta)&=\left|f(\theta)\right|^{2}
 	\end{align}
+	\quad\quad 这样的解在远区自然是成立的。现在还需要讨论中间区。这部分可以忽略散射势但是不忽略离心势，解的形式为
+	\begin{equation}
+		\psi\left(r,\theta,\phi\right)=A\left[\mathrm{e}^{\mathrm{i}kz}+\sum_{l,m}C_{lm}\mathrm{h}_{l}^{\left(1\right)}\left(kr\right)\mathrm{Y}_{l}^{m}\left(\theta,\phi\right)\right]
+	\end{equation}
+	\quad\quad 只考虑旋转对称情况，约定将展开系数重新取为
+	\begin{equation}
+		\psi\left(r,\theta\right)=A\left[\mathrm{e}^{\mathrm{i}kz}+k\sum_{l=0}^{+\infty}\mathrm{i}^{l+1}\left(2l+1\right)a_{l}\mathrm{h}_{l}^{\left(1\right)}\left(kr\right)\mathrm{P}_{l}\left(\cos\theta\right)\right]
+	\end{equation}
+	\quad\quad 这告诉我们
+	\begin{equation}
+		f\left(\theta\right)=\sum_{l=0}^{+\infty}\left(2l+1\right)a_{l}\mathrm{P}_{l}\left(\cos\theta\right)
+	\end{equation}
+	\quad\quad 从而总散射截面
+	\begin{equation}
+		\sigma=4\pi\sum_{l=0}^{+\infty}\left(2l+1\right)\left|a_{l}\right|^{2}
+	\end{equation}
+	\quad\quad 进一步带入瑞利公式
+    \begin{equation}
+    	\psi\left(r,\theta\right)=A\sum_{l=0}^{+\infty}\mathrm{i}^{l}\left(2l+1\right)\left[\mathrm{j}_{l}\left(kr\right)+\mathrm{i}ka_{l}\mathrm{h}_{l}^{\left(1\right)}\left(kr\right)\right]\mathrm{P}_{l}\left(\cos\theta\right)
+    \end{equation}
+    \quad\quad 在此前的散射问题中，我们定义过透射、反射系数，它们都归根于求解相移。考虑上式的渐进性形式
+    \begin{equation}
+    	\psi\left(r,\theta\right)\approx\dfrac{A}{2\mathrm{i}kr}\sum_{l=0}^{+\infty}\left(2l+1\right)\left[\left(1+2\mathrm{i}ka_{l}\right)\mathrm{e}^{\mathrm{i}kr}-\left(-1\right)^{l}\mathrm{e}^{-\mathrm{i}kr}\right]\mathrm{P}_{l}\left(\cos\theta\right)
+    \end{equation}
+    \quad\quad 通过薛定谔方程得到几率流守恒方程
+    \begin{equation}
+    	\mathrm{i}\hbar\dfrac{\partial}{\partial t}\left|\Psi\right|^{2}=-\dfrac{\hbar^{2}}{2m}\boldsymbol{\nabla}\cdot\left(\Psi^{*}\boldsymbol{\nabla}\Psi-\Psi\boldsymbol{\nabla}\Psi^{*}\right)
+    \end{equation}
+    \quad\quad 对于定态右侧体积分为$0$。初始的平面波分解为不同角动量本征值的状态，而散射过程角动量守恒，这说明只需要考虑单个分波即可\footnote{实际上由于这里涉及角动量量子数，对$l$求和中的每一项都是对应薛定谔方程的解，所以才能分开考虑}。我们考虑如下形式波函数
+    \begin{equation}
+    	\xi=\dfrac{B\mathrm{e}^{\mathrm{i}kr}+C\mathrm{e}^{-\mathrm{i}kr}}{r}
+    \end{equation}
+    \begin{align}
+    	\lim_{r\to+\infty}r^{2}\left(\xi^{*}\boldsymbol{\nabla}\xi-xi\boldsymbol{\nabla}\xi^{*}\right)=0\to\left|B\right|^{2}=\left|C\right|^{2}
+    \end{align}
+    \quad\quad 因此可以引入相移因子
+    \begin{align}
+    	\mathrm{e}^{\mathrm{2i\delta_{l}}}&=1+2\mathrm{i}ka_{l}\\
+    	a_{l}&=\dfrac{1}{k}\mathrm{e}^{\mathrm{i}\delta_{l}}\sin\delta_{l}
+    \end{align}
+    \quad\quad 此前各公式可以重新表示为
+    \begin{align}
+    	f\left(\theta\right)&=\sum_{l=0}^{+\infty}\left(2l+1\right)a_{l}\dfrac{1}{k}\mathrm{e}^{\mathrm{i}\delta_{l}}\sin\delta_{l}\mathrm{P}_{l}\left(\cos\theta\right)\\
+    	\sigma&=\dfrac{4\pi}{k^{2}}\sum_{l=0}^{+\infty}\left(2l+1\right)\sin^{2}\delta_{l}
+    \end{align}
+    \quad\quad 散射问题还有另一种处理方法。先写出定态薛定谔方程的形式解
+    \begin{align}
+    	\psi\left(\boldsymbol{r}\right)=\psi_{0}\left(\boldsymbol{r}\right)-\dfrac{m}{2\pi\hbar^{2}}\iiint&\mathrm{d}^{3}\boldsymbol{r^{\prime}}\dfrac{\mathrm{e}^{\mathrm{i}k\left|\boldsymbol{r}-\boldsymbol{r^{\prime}}\right|}}{\left|\boldsymbol{r}-\boldsymbol{r^{\prime}}\right|}V\left(\boldsymbol{r^{\prime}}\right)\psi\left(\boldsymbol{r^{\prime}}\right)\\
+    	\left(\boldsymbol{\nabla}^{2}+k^{2}\right)&\psi_{0}=0
+    \end{align}
+    \quad\quad 将这个形式解反复带入自身得到的级数成为玻恩级数，它有可能是收敛的。如果仍然认为散射势局限在一个较小的范围内，那么可以近似为
+    \begin{equation}
+    	\psi\left(\boldsymbol{r}\right)=\psi_{0}\left(\boldsymbol{r}\right)-\dfrac{m}{2\pi\hbar^{2}}\dfrac{\mathrm{e}^{\mathrm{i}k\left|\boldsymbol{r}\right|}}{\left|\boldsymbol{r}\right|}\iiint\mathrm{d}^{3}\boldsymbol{r^{\prime}}\mathrm{e}^{-\mathrm{i}\boldsymbol{k_{r}}\cdot\boldsymbol{r^{\prime}}}V\left(\boldsymbol{r^{\prime}}\right)\psi\left(\boldsymbol{r^{\prime}}\right)
+    \end{equation}
 	\section{定态微扰理论}
 	使用微扰法近似求解定态薛定谔方程。先假设无微扰本征态是非简并的。用$\lambda$来标记数量级，保留到二阶项
 	\begin{align}
@@ -736,7 +960,7 @@
 		(\gamma-\mu)\left<\psi_{a}^{0}\big{|}\xi\right>&=0\\
 		(\gamma-\nu)\left<\psi_{b}^{0}\big{|}\xi\right>&=0
 	\end{align}
-	\quad\quad 如果取微扰为$0$的极限，$\gamma$必须是$\mu$和$\nu$中的一个，否则两个内积都是$0$，这个共同本征态的极限是$0$，不符合要求。这就说明内积有一个是$0$，有一个不是$0$，这就说明极限是简并本征态中的一个。由于已经完成正交化，这一组简并本征态满足要求。\footnote{实际上往往能够通过对称性找到$\hat{A}$并通过相应对称性适当组合本征函数}
+	\quad\quad 如果取微扰为$0$的极限，$\gamma$必须是$\mu$和$\nu$中的一个，否则两个内积都是$0$，这个共同本征态的极限是$0$，不符合要求。这就说明内积有一个是$0$，有一个不是$0$，这就说明极限是简并本征态中的一个。由于已经完成正交化，这一组简并本征态满足要求\footnote{实际上往往能够通过对称性找到$\hat{A}$并通过相应对称性适当组合本征函数}。
 	\section{含时微扰理论}
 	
 \end{document}
